@@ -1,0 +1,49 @@
+﻿@model TaskDay2.Models.Instructor
+
+@{
+    ViewData["Title"] = "Edit Instructor";
+}
+
+<div class="container">
+    <div class="row">
+
+        <h1 class="my-4">Edit Instructor</h1>
+
+        <form asp-action="Edit" asp-route-id="@Model.InsId" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="InsId" />
+            <div class="form-group my-2">
+                <label asp-for="InsName">Instructor Name</label>
+                <input asp-for="InsName" class="form-control" />
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="InsSalary">Instructor Salary</label>
+                <input asp-for="InsSalary" class="form-control" />
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="InsAddress">Instructor Address</label>
+                <input asp-for="InsAddress" class="form-control" />
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="InsImage">Instructor Image</label>
+                <input asp-for="InsImage" class="form-control" />
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="DeptId">Department</label>
+                <select asp-for="DeptId" asp-items="ViewBag.DepartmentList" class="form-control">
+                    <option value="0">--Select Department--</option>
+
+                </select>
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="CrsId">Course</label>
+                <select asp-for="CrsId" asp-items="ViewBag.CourseList" class="form-control">
+                    <option value="0">--Select Course--</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Edit Instructor</button>
+        </form>
+
+
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model List<TaskDay2.ViewModels.TraineeCourseResultViewModel>
+
+<div class="container">
+    <div class="row">
+        <h1 class="my-4">Trainee Results</h1>
+
+        <table class="table table-bordered table-hover text-center">
+            <thead>
+                <tr>
+                    <th>Trainee Name</th>
+                    <th>Course Name</th>
+                    <th>Course Degree</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var result in Model)
+                {
+                    <tr style="color:@(result.Color);">
+                        <td>@result.TraineeName</td>
+                        <td>@result.CourseName</td>
+                        <td>@result.CourseDegree</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+

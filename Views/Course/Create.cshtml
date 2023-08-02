@@ -1,0 +1,45 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Add Course";
+}
+
+<div class="container">
+    <div class="row">
+        <h1 class="my-4">Add Course</h1>
+
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            <div class="form-group my-2">
+                <label asp-for="CrsName">Course Name</label>
+                <input asp-for="CrsName" class="form-control" />
+                @Html.ValidationMessageFor( Course => Course.CrsName, "",new {@class= "text-danger"})
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="CrsDegree">Course Degree</label>
+                <input asp-for="CrsDegree" class="form-control" />
+                @Html.ValidationMessageFor( Course => Course.CrsDegree, "",new {@class= "text-danger"})
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="CrsMinDegree">Course Min. Degree</label>
+                <input asp-for="CrsMinDegree" class="form-control" />
+                @Html.ValidationMessageFor( Course => Course.CrsMinDegree, "",new {@class= "text-danger"})
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="DeptId">Department</label>
+                <select asp-for="DeptId" asp-items="ViewBag.DepartmentList" class="form-control">
+                    <option value="0">--Select Department--</option>
+                </select>
+                @Html.ValidationMessageFor( Course => Course.DeptId, "",new {@class= "text-danger"})
+            </div>
+            <button type="submit" class="btn btn-primary">Add Course</button>
+        </form>
+    </div>
+</div>
+
+
+<!----------Client Side Validation---------->
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

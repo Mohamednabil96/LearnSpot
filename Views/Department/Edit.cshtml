@@ -1,0 +1,24 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "Edit Department";
+}
+
+<div class="container">
+    <div class="row">
+
+        <h1 class="my-4">Edit Department</h1>
+
+        <form asp-action="Edit" asp-route-id="@Model.DeptId" method="post" enctype="multipart/form-data">
+            <div class="form-group my-2">
+                <label asp-for="DeptName">Department Name</label>
+                <input asp-for="DeptName" class="form-control" />
+            </div>
+            <div class="form-group my-2">
+                <label asp-for="ManagerName">Manager Name</label>
+                <input asp-for="ManagerName" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Add Department</button>
+        </form>
+
+    </div>
+</div>
